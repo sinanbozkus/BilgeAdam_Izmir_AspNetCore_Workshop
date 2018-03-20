@@ -1,0 +1,31 @@
+﻿@model List<BilgeAdamAspNetCoreTest.Models.Todo>
+
+@if (Model.Any())
+{
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var todo in Model)
+            {
+                <tr>
+                    <td>@Html.Raw(todo.Title)</td>
+                    <td>
+                        <a asp-controller="Todo" asp-action="Delete" asp-route-id="@todo.Id" class="btn btn-danger">
+                            <i class="fa fa-times"></i> Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+}
